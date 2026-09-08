@@ -43,15 +43,21 @@ conocerse mutuamente por URL (ver más abajo).
      redeploy manual).
    - `ADMIN_PASSWORD`: la contraseña de `admin@console.com`. Poné algo
      mejor que `admin123` para producción.
-   - `DATABASE_URL` y `JWT_SECRET` se completan solos (Render los genera).
+   - `DATABASE_URL`, `JWT_SECRET` y `SEED_TOKEN` se completan solos
+     (Render los genera).
 4. Deploy. Cuando termine, Render te da una URL tipo
    `https://estudio-lienzo-backend.onrender.com` — la vas a necesitar en
    el paso 2.
-5. Corré el seed una sola vez (crea el usuario admin y los datos
-   iniciales) desde la pestaña **Shell** del servicio en Render:
-   ```bash
-   npm run seed
-   ```
+5. Cargá los datos iniciales (crea el usuario admin y los proyectos de
+   ejemplo) — hay dos formas, usá la que corresponda a tu plan:
+   - **Con Shell** (solo disponible en planes pagos del servicio web):
+     pestaña **Shell** del servicio → `npm run seed`.
+   - **Sin Shell** (servicios en plan Free no tienen Shell): abrí en el
+     navegador
+     `https://TU-BACKEND.onrender.com/api/admin/seed?token=TU_SEED_TOKEN`
+     — el valor de `TU_SEED_TOKEN` es el que Render generó solo para la
+     variable `SEED_TOKEN` (Environment → buscá `SEED_TOKEN` → **Reveal**
+     para verlo). Es seguro abrir esa URL más de una vez.
 
 ## 2. Desplegar el frontend en Vercel
 

@@ -7,6 +7,7 @@ const authRoutes = require('./routes/auth');
 const projectRoutes = require('./routes/projects');
 const contentRoutes = require('./routes/content');
 const commentRoutes = require('./routes/comments');
+const adminRoutes = require('./routes/admin');
 
 const app = express();
 app.set('trust proxy', 1); // Render sits behind a proxy; needed for secure cookies
@@ -23,6 +24,7 @@ app.use('/api/auth', authRoutes);
 app.use('/api/projects', projectRoutes);
 app.use('/api/content', contentRoutes);
 app.use('/api/comments', commentRoutes);
+app.use('/api/admin', adminRoutes);
 
 // Last-resort error handler so a thrown/rejected error in a route becomes
 // a clean 500 instead of an unhandled crash.
