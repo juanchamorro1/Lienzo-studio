@@ -1,6 +1,6 @@
 databases:
   - name: estudio-lienzo-db
-    plan: free
+    plan: basic-256mb
     region: oregon
 
 services:
